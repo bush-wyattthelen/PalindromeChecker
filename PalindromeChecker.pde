@@ -14,16 +14,20 @@ public void setup()
     }
   }
 }
+
 public boolean palindrome(String word)
 {
-  //your code here
-  return false;
-}
-public String reverse(String str)
-{
-    String sNew = new String();
-    //your code here
-    return sNew;
-}
+  word = word.toLowerCase();
+  String temp = "";
+  
+  for (int i = 0; i < word.length(); i++) {
+    char tempChar = word.charAt(i);
+    if (tempChar != ' ' && tempChar != '!' && tempChar != '.' && tempChar != ',' && tempChar != 39) temp = temp + tempChar;
+  }
 
-
+  for (int i = 0; i < (int)((temp.length()) / 2); i++) {
+    if (temp.charAt(i) != temp.charAt(temp.length() - 1 - i)) return false;
+  }
+  
+  return true;
+}
